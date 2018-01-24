@@ -12,5 +12,7 @@ public class BooleanTest {
         System.out.println(b1.hashCode());  // 1231
         System.out.println(b1.equals(b2));  // true
         System.out.println(b1 == b2);   // false
+
+
     }
 }
