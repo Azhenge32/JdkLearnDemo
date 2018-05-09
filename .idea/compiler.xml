@@ -6,10 +6,15 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JdkLearnDemo" />
+        <module name="Java10Learn" />
+        <module name="Java8Learn" />
+        <module name="Java9Learn" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="Java10Learn" target="1.7" />
+      <module name="Java8Learn" target="1.7" />
+      <module name="Java9Learn" target="1.7" />
       <module name="JdkLearnDemo" target="1.7" />
     </bytecodeTargetLevel>
   </component>

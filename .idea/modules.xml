@@ -2,6 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Java10Learn/Java10Learn.iml" filepath="$PROJECT_DIR$/Java10Learn/Java10Learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java8Learn/Java8Learn.iml" filepath="$PROJECT_DIR$/Java8Learn/Java8Learn.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Java9Learn/Java9Learn.iml" filepath="$PROJECT_DIR$/Java9Learn/Java9Learn.iml" />
       <module fileurl="file://$PROJECT_DIR$/JdkLearnDemo.iml" filepath="$PROJECT_DIR$/JdkLearnDemo.iml" />
     </modules>
   </component>

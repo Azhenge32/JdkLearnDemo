@@ -17,7 +17,12 @@
             </plugin>
         </plugins>
     </build>
-    <packaging>jar</packaging>
+    <modules>
+        <module>Java8Learn</module>
+        <module>Java9Learn</module>
+        <module>Java10Learn</module>
+    </modules>
+    <packaging>pom</packaging>
 
   <name>JdkLearnDemo</name>
   <url>http://maven.apache.org</url>

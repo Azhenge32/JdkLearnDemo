@@ -3,5 +3,8 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="svn" />
     <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Java10Learn" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/Java8Learn" vcs="svn" />
+    <mapping directory="$PROJECT_DIR$/Java9Learn" vcs="svn" />
   </component>
 </project>
