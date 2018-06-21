@@ -1,9 +1,6 @@
 package com.azhen.java.util.stream;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class StreamTest {
@@ -30,6 +27,23 @@ public class StreamTest {
     private static final int size = 10_0000;
     private static int serialTime = 0;
     private static int parallelTime = 0;
+
+    public static void main(String[] args) {
+        mainThreaWaitForParallelStream();
+    }
+    public static void mainThreaWaitForParallelStream() {
+        List<String> list = Arrays.asList("Apple");
+        list.parallelStream().forEach(str -> {
+            try {
+                Thread.sleep(3000);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            System.out.println("parallel finish");
+        });
+        System.out.println("main finish");
+    }
+
     public static void test1(int add) {
         List<Person> personList = new ArrayList<>(size);
         for (int i = 0; i < size + add; i ++) {
@@ -54,7 +68,7 @@ public class StreamTest {
         valid(personMap, size + add);
         valid(personMap2, size + add);
     }
-    public static void main(String[] args) {
+    public static void testSplitaror(String[] args) {
        for (int i = 0; i < 100; i ++) {
            System.out.println(i);
            test1(i);
