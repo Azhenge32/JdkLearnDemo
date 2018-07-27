@@ -1,6 +1,8 @@
 package com.azhen.java.util.stream;
 
 import java.util.*;
+import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
 public class StreamTest {
@@ -29,8 +31,26 @@ public class StreamTest {
     private static int parallelTime = 0;
 
     public static void main(String[] args) {
-        mainThreaWaitForParallelStream();
+        // mainThreaWaitForParallelStream();
+        // parallelStreamAdd();
+
+        parallelJoinMain();
     }
+
+    private static void parallelJoinMain() {
+        List<Integer> list = new ArrayList<>();
+        for (int i = 0; i < 1000; i ++) {
+            list.add(i);
+        }
+        list.parallelStream().forEach(i -> {
+            System.out.println("parallel1111" + Thread.currentThread().getName());
+        });
+        list.parallelStream().forEach(i -> {
+            System.out.println("parallel22222" + Thread.currentThread().getName());
+        });
+        System.out.println("main finish");
+    }
+
     public static void mainThreaWaitForParallelStream() {
         List<String> list = Arrays.asList("Apple");
         list.parallelStream().forEach(str -> {
@@ -85,4 +105,39 @@ public class StreamTest {
             throw new RuntimeException("数量不对" + sum);
         }
     }
+
+    public static void parallelStreamAdd()
+    {
+        Integer[] intArray = {1, 2, 3, 4, 5, 6, 7, 8};
+        List<Integer> listOfIntegers =
+                new ArrayList<>(Arrays.asList(intArray));
+        // List<Integer> parallelStorage = new ArrayList<>();//Collections.synchronizedList(new ArrayList<>());
+        // List<Integer> parallelStorage = Collections.synchronizedList(new ArrayList<>());
+        List<Integer> parallelStorage = new CopyOnWriteArrayList<>();
+        listOfIntegers
+                .parallelStream()
+                // Don't do this! It uses a stateful lambda expression.
+                .map(e -> {
+                    parallelStorage.add(e);
+                    return e;
+                })
+                .forEachOrdered(e -> System.out.print(e + " "));
+        System.out.println();
+        parallelStorage
+                .stream()
+                .forEachOrdered(e -> System.out.print(e + " "));
+        System.out.println();
+        System.out.println("Sleep 5 sec");
+        try {
+            TimeUnit.SECONDS.sleep(5);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        parallelStorage
+                .stream()
+                .forEachOrdered(e -> System.out.print(e + " "));
+    }
+
+
+
 }
